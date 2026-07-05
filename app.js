@@ -170,7 +170,7 @@ function setupAddBookForm() {
     };
 
     books.push(newBook);
-
+    renderCatalog(books);
     var confirmation = document.getElementById("add-book-confirmation");
     confirmation.textContent = newBook.title + " was added to the catalog.";
 
