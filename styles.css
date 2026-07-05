@@ -1,0 +1,268 @@
+:root {
+  --ink: #1a1a1a;
+  --slate: #4a4a4a;
+  --gray: #767676;
+  --line: #d6d6d6;
+  --paper: #f2f2f2;
+  --white: #ffffff;
+  --error: #b3261e;
+
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 32px;
+  --space-4: 48px;
+
+  --font-display: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-body: "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", Consolas, "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  margin: 0;
+}
+
+a {
+  color: var(--ink);
+}
+
+.site-header {
+  background: var(--ink);
+  color: var(--white);
+  padding: var(--space-3) var(--space-3) var(--space-2);
+}
+
+.site-header h1 {
+  font-size: 28px;
+  letter-spacing: 0.02em;
+}
+
+.site-header__tagline {
+  margin: var(--space-1) 0 0;
+  color: var(--line);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+main {
+  padding: var(--space-3);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.site-footer {
+  padding: var(--space-2) var(--space-3);
+  color: var(--gray);
+  font-size: 13px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+.tabs {
+  display: flex;
+  gap: var(--space-1);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--space-3);
+}
+
+.tabs__button {
+  font-family: var(--font-body);
+  font-size: 15px;
+  background: none;
+  border: none;
+  padding: var(--space-2) var(--space-1);
+  color: var(--gray);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tabs__button:hover {
+  color: var(--ink);
+}
+
+.tabs__button.is-active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+  font-weight: 600;
+}
+
+.tabs__button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.search-bar {
+  margin-bottom: var(--space-3);
+}
+
+.search-bar__label {
+  display: block;
+  font-size: 13px;
+  color: var(--slate);
+  margin-bottom: var(--space-1);
+}
+
+.search-bar__input {
+  width: 100%;
+  font-size: 16px;
+  font-family: var(--font-body);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--line);
+  background: var(--white);
+  border-radius: 2px;
+}
+
+.search-bar__input:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.card-catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-2);
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--ink);
+  padding: var(--space-2);
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: var(--space-2);
+  width: 1px;
+  height: 100%;
+  background: var(--line);
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  margin: 0 0 var(--space-1);
+  padding-right: var(--space-2);
+}
+
+.card__author {
+  color: var(--slate);
+  font-size: 14px;
+  margin: 0 0 var(--space-2);
+}
+
+.card__meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--gray);
+  padding-right: var(--space-2);
+}
+
+.card__stock {
+  font-weight: 600;
+}
+
+.card__stock.is-low {
+  color: var(--error);
+}
+
+.loading {
+  display: inline-block;
+  color: var(--slate);
+  font-size: 14px;
+  padding: var(--space-1) 0;
+}
+
+#catalog-status:empty {
+  display: none;
+}
+
+.panel__hint {
+  color: var(--slate);
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+}
+
+.field {
+  margin-bottom: var(--space-2);
+  max-width: 420px;
+}
+
+.field label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: var(--space-1);
+}
+
+.field input {
+  width: 100%;
+  font-size: 16px;
+  font-family: var(--font-body);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--line);
+  background: var(--white);
+  border-radius: 2px;
+}
+
+.field input:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.field input.is-invalid {
+  border-color: var(--error);
+}
+
+.field__error {
+  color: var(--error);
+  font-size: 13px;
+  margin: var(--space-1) 0 0;
+  min-height: 16px;
+}
+
+.button-primary {
+  font-family: var(--font-body);
+  font-size: 15px;
+  background: var(--ink);
+  color: var(--white);
+  border: none;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 2px;
+  cursor: pointer;
+  margin-top: var(--space-1);
+}
+
+.button-primary:hover {
+  background: var(--slate);
+}
+
+.button-primary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.confirmation {
+  color: var(--slate);
+  font-size: 14px;
+  margin-top: var(--space-2);
+}
