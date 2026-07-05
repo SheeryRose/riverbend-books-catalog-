@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riverbend Books — Floor Catalog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Riverbend Books</h1>
+    <p class="site-header__tagline">Floor catalog</p>
+  </header>
+
+  <main id="main">
+    <nav class="tabs" aria-label="Catalog sections">
+      <button type="button" class="tabs__button is-active" data-tab="catalog" aria-pressed="true">Catalog</button>
+      <button type="button" class="tabs__button" data-tab="add" aria-pressed="false">Add book</button>
+    </nav>
+
+    <section id="panel-catalog" class="panel" data-panel="catalog">
+      <div class="search-bar">
+        <label for="search-input" class="search-bar__label">Search by title or author</label>
+        <input type="text" id="search-input" class="search-bar__input" placeholder="e.g. Kavalier, Persuasion" autocomplete="off">
+      </div>
+
+      <div id="catalog-status" role="status" aria-live="polite"></div>
+
+      <div id="catalog-list" class="card-catalog"></div>
+    </section>
+
+    <section id="panel-add" class="panel" data-panel="add" hidden>
+      <h2>Add a new title</h2>
+      <p class="panel__hint">Fields marked with an asterisk are required.</p>
+
+      <form id="add-book-form" novalidate>
+        <div class="field">
+          <label for="field-title">Title *</label>
+          <input type="text" id="field-title" name="title">
+          <p class="field__error" id="error-title"></p>
+        </div>
+
+        <div class="field">
+          <label for="field-author">Author *</label>
+          <input type="text" id="field-author" name="author">
+          <p class="field__error" id="error-author"></p>
+        </div>
+
+        <div class="field">
+          <label for="field-stock">Copies in stock *</label>
+          <input type="number" id="field-stock" name="stock" min="0" step="1">
+          <p class="field__error" id="error-stock"></p>
+        </div>
+
+        <button type="submit" class="button-primary">Add to catalog</button>
+        <p id="add-book-confirmation" role="status" aria-live="polite" class="confirmation"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Riverbend Books · Internal use only</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
